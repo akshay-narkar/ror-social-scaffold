@@ -71,13 +71,28 @@ TBA
 
 ## Authors
 
-TBA
+👤 **Author1**
+
+- GitHub: [@ggotora](https://github.com/ggotora)
+- Twitter: [Gotora Gilbert](https://www.twitter.com/gotora_gilbert)
+
+👤 **Author2**
+
+- Github: [@akshay-narkar](https://github.com/akshay-narkar)
+- Twitter: [Akshay](https://www.twitter.com/akidoit)
+
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues and feature requests are welcome! Start by:
 
-Feel free to check the [issues page](issues/).
+- Forking the project
+- Cloning the project to your local machine
+- `cd` into the project directory
+- Run `git checkout -b your-branch-name`
+- Make your contributions
+- Push your branch up to your forked repository
+- Open a Pull Request with a detailed description to the development branch of the original project for a review
 
 ## Show your support
 
@@ -85,9 +100,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-TBA
+- Thanks to Odin project for the tutorials.
 
 ## 📝 License
 
-TBA
-
+This project is [MIT](LICENSE) licensed.
