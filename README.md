@@ -4,13 +4,12 @@
 
 ## Built With
 
-- Ruby v2.7.0
-- Ruby on Rails v5.2.4
+- Ruby v2.7.2
+- Ruby on Rails v6.1
 
 ## Live Demo
 
 TBA
-
 
 ## Getting Started
 
@@ -18,8 +17,8 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Ruby: 2.6.3
-Rails: 5.2.3
+Ruby: 2.7.2
+Rails: 6.1.3
 Postgres: >=9.5
 
 ### Setup
@@ -45,7 +44,6 @@ To make sure the linters' checks using Github Actions work properly, you should 
 2. Create the `feature/branch` and push.
 3. Start working on your milestone as usual.
 4. Open a PR from the `feature/branch` when your work is done.
-
 
 ### Usage
 
@@ -80,7 +78,6 @@ TBA
 
 - Github: [@akshay-narkar](https://github.com/akshay-narkar)
 - Twitter: [Akshay](https://www.twitter.com/akidoit)
-
 
 ## 🤝 Contributing
 
