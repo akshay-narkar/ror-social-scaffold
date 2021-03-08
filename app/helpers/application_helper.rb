@@ -35,4 +35,32 @@ module ApplicationHelper
       render 'layouts/noncurrentpartial'
     end
   end
+
+  def checkfriend(user, show = nil)
+    return 'Yourself' if (current_user.id == user.id) and show == 'show'
+    return if (current_user.id == user.id) and show.nil?
+
+    friendobject = Friendship.new
+
+    awaiting = friendobject.await(current_user, user)
+    render 'friendships/awaiting' if awaiting
+
+    if friendobject.friendss(current_user, user)
+      render 'friendships/friends'
+    else
+      render partial: 'friendships/onshowrequest', locals: { user: user }
+    end
+  end
+
+  def checkusercurrent
+    return unless current_user
+
+    friendobject = Friendship.new
+    count = friendobject.pendingreq(current_user) if current_user
+    if count.count.positive?
+      render partial: 'layouts/showinnavbut', locals: { count: count }
+    else
+      render partial: 'layouts/showinnav'
+    end
+  end
 end
