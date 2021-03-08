@@ -42,11 +42,10 @@ module ApplicationHelper
 
     friendobject = Friendship.new
 
-    awaiting = friendobject.await(current_user, user)
-    render 'friendships/awaiting' if awaiting
-
-    if friendobject.friendss(current_user, user)
-      render 'friendships/friends'
+    if friendobject.await(current_user, user)
+      render partial: 'friendships/awaiting'
+    elsif friendobject.friendss(current_user, user)
+      render partial: 'friendships/friends'
     else
       render partial: 'friendships/onshowrequest', locals: { user: user }
     end
