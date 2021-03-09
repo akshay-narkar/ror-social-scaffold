@@ -1,5 +1,3 @@
-# rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
-
 module ApplicationHelper
   def menu_link_to(link_text, link_path)
     class_name = current_page?(link_path) ? 'menu-item active' : 'menu-item'
@@ -38,10 +36,14 @@ module ApplicationHelper
     end
   end
 
-  def checkfriend(user, show = nil)
+  def checkfriend1(user, show = nil)
     return 'Yourself' if (current_user.id == user.id) and show == 'show'
     return if (current_user.id == user.id) and show.nil?
 
+    checkfriend(user)
+  end
+
+  def checkfriend(user)
     friendobject = Friendship.new
 
     if friendobject.await(current_user, user)
@@ -65,5 +67,3 @@ module ApplicationHelper
     end
   end
 end
-
-# rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
