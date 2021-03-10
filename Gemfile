@@ -13,8 +13,7 @@ gem 'webpacker', '~> 5.0'
 gem 'pg', '~> 1.2', '>= 1.2.3'
 # Use Puma as the app server
 # Use SCSS for stylesheets
-gem 'rubocop'
-
+gem 'rubocop', '~>0.81.0'
 gem 'sass-rails', '>= 6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
