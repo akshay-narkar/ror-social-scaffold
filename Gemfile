@@ -43,6 +43,7 @@ gem 'gravatar_image_tag', '~> 1.2'
 gem 'simple_form', '~> 5.0', '>= 5.0.3'
 
 group :development, :test do
+  gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
