@@ -1,7 +1,8 @@
 class Friendship < ApplicationRecord
   belongs_to :user
   belongs_to :friend, class_name: :User
-  validates_uniqueness_of :user, scope: %i[friend]
+  validates_uniqueness_of :user_id, scope: %i[friend_id]
+  validates_uniqueness_of :friend_id, scope: %i[user_id]
 
   scope :friendlist, -> { where('status = ?', true) }
   scope :waiting, -> { where('status = ?', false) }
