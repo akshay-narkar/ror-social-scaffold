@@ -15,4 +15,55 @@ module ApplicationHelper
       link_to('Like!', post_likes_path(post_id: post.id), method: :post)
     end
   end
+
+  def notice1
+    render 'layouts/noticep' if notice.present?
+  end
+
+  def alert1
+    render 'layouts/alertp' if alert.present?
+  end
+
+  def devisemap(variable)
+    render partial: 'layouts/devise', locals: { variable1: variable } if devise_mapping.rememberable?
+  end
+
+  def current_user1
+    if current_user
+      render 'layouts/currentpartial'
+    else
+      render 'layouts/noncurrentpartial'
+    end
+  end
+
+  def checkfriend1(user, show = nil)
+    return 'Yourself' if (current_user.id == user.id) and show == 'show'
+    return if (current_user.id == user.id) and show.nil?
+
+    checkfriend(user)
+  end
+
+  def checkfriend(user)
+    friendobject = Friendship.new
+
+    if friendobject.await(current_user, user)
+      render partial: 'friendships/awaiting'
+    elsif friendobject.friendss(current_user, user)
+      render partial: 'friendships/friends'
+    else
+      render partial: 'friendships/onshowrequest', locals: { user: user }
+    end
+  end
+
+  def checkusercurrent
+    return unless current_user
+
+    friendobject = Friendship.new
+    count = friendobject.pendingreq(current_user) if current_user
+    if count.count.positive?
+      render partial: 'layouts/showinnavbut', locals: { count: count }
+    else
+      render partial: 'layouts/showinnav'
+    end
+  end
 end
