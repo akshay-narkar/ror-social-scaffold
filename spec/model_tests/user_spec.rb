@@ -6,7 +6,8 @@ describe User, type: :model do
     it { should have_many(:comments) }
     it { should have_many(:likes) }
     it { should have_many(:friendships) }
-    it { should have_many(:inverse_friendships), foreign_key: :friend_id, class_name: :Friendship }
+    it { should have_many(:requests_received), foreign_key: :friend_id, class_name: :Friendship }
+    it { should have_many(:requests_sent), foreign_key: :user_id, class_name: :Friendship }
   end
 
   context 'Validations' do

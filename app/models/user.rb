@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :friendships, dependent: :destroy
-  has_many :inverse_friendships, foreign_key: :friend_id, class_name: :Friendship
+  has_many :friendships, -> { where('status = ?', true) }, dependent: :destroy
+  has_many :requests_sent, -> { where('status = ?', false) }, foreign_key: :user_id, class_name: :Friendship
+  has_many :requests_received, -> { where('status = ?', false) }, foreign_key: :friend_id, class_name: :Friendship
 end
