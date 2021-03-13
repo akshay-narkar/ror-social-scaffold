@@ -5,13 +5,13 @@ class Friendship < ApplicationRecord
   validates_uniqueness_of :friend_id, scope: %i[user_id]
 
   # scope :friendlist, -> { where('status = ?', true) }
-  scope :waiting, -> { where('status = ?', false) }
+  # scope :waiting, -> { where('status = ?', false) }
 
   after_update :create_friend
 
-  def await(current_user, user)
-    x = Friendship.where('friend_id = ?', current_user.id).and(Friendship.where('user_id = ?', user.id)).waiting
-    x1 = Friendship.where('friend_id = ?', user.id).and(Friendship.where('user_id = ?', current_user.id)).waiting
+  def await(current_user, _user)
+    x = current_user.requests_sent
+    x1 = current_user.requests_received
 
     x2 = x + x1
 
@@ -32,7 +32,9 @@ class Friendship < ApplicationRecord
   end
 
   def pendingreq(currentuser)
-    Friendship.where('friend_id = ?', currentuser.id).waiting
+    @awaitng = currentuser.requests_received
+
+    # Friendship.where('friend_id = ?', currentuser.id).waiting
   end
 
   private

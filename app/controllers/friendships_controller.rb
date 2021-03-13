@@ -11,8 +11,7 @@ class FriendshipsController < ApplicationController
   def new; end
 
   def show
-    @waitingfriendships = current_user.friendships.waiting
-    @awaitng = Friendship.where('friend_id = ?', current_user.id).waiting
+    @awaitng = current_user.requests_received
   end
 
   def destroy
