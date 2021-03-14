@@ -1,21 +1,16 @@
 # Scaffold for social media app with Ruby on Rails
 
 ## Project Specification
+
 Build a social media app called “Stay in touch”.
 
-
 ### As a guest user:
-
-
 
 I want to be able to create account/log in.
 
 I can see only “Sign in” and “Sign out” page.
 
-
 ### As a logged-in user:
-
-
 
 I want to be able to see all users list.
 
@@ -39,7 +34,6 @@ I want to be able to see “Timeline” page with posts (with number of likes an
 
 Timeline page should be the root page of the app.
 
-
 #### Without logging in
 
 > ![screenshot](not_signed_in.png)
@@ -56,7 +50,6 @@ Timeline page should be the root page of the app.
 
 > ![screenshot](accept_decline_friend.png)
 
-
 ## Built With
 
 - Ruby v2.7.2
@@ -64,7 +57,7 @@ Timeline page should be the root page of the app.
 
 ## Live Demo
 
-TBA
+https://stay-in-touch-angg.herokuapp.com
 
 ## Getting Started
 
@@ -120,7 +113,14 @@ Open `http://localhost:3000/` in your browser.
 
 ### Deployment
 
-TBA
+From console run the following commands after cloning
+
+```
+   heroku login (login to heroku)
+   heroku create stayintouch (or any app name you like)
+   git push heroku main (pushing from the main branch)
+
+```
 
 ## Authors
 
